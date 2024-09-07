@@ -10,12 +10,12 @@ namespace CountEZ.Core.Base
         /// <summary>
         /// Occurs when a property value changes.
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         /// <summary>
         /// Notifies subscribers of the property change.
         /// </summary>
-        protected virtual bool NotifyPropertyChanged<T>(ref T oldValue, T newValue, [CallerMemberName] string propertyName = null)
+        protected virtual bool NotifyPropertyChanged<T>(ref T oldValue, T newValue, [CallerMemberName] string? propertyName = null)
         {
             if (Equals(oldValue, newValue))
                 return false;
@@ -29,7 +29,7 @@ namespace CountEZ.Core.Base
         /// <summary>
         /// Notifies subscribers of the property change.
         /// </summary>
-        protected virtual bool NotifyPropertyChanged<T>(ref T oldValue, T newValue, Action onChanged, [CallerMemberName] string propertyName = null)
+        protected virtual bool NotifyPropertyChanged<T>(ref T oldValue, T newValue, Action onChanged, [CallerMemberName] string? propertyName = null)
         {
             if (Equals(oldValue, newValue))
                 return false;
@@ -44,7 +44,7 @@ namespace CountEZ.Core.Base
         /// <summary>
         /// Notifies subscribers of the property change.
         /// </summary>
-        protected virtual bool NotifyPropertyChanged<T>(ref T oldValue, T newValue, Action<T> onChanging, Action onChanged, [CallerMemberName] string propertyName = null)
+        protected virtual bool NotifyPropertyChanged<T>(ref T oldValue, T newValue, Action<T> onChanging, Action onChanged, [CallerMemberName] string? propertyName = null)
         {
             if (Equals(oldValue, newValue))
                 return false;
@@ -62,7 +62,7 @@ namespace CountEZ.Core.Base
         /// <summary>
         /// Notifies subscribers of the property change.
         /// </summary>
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
@@ -84,7 +84,7 @@ namespace CountEZ.Core.Base
             if (!(property.Body is MemberExpression body))
                 throw new ArgumentException("Unable to access Expression", nameof(property));
 
-            PropertyInfo member = body.Member as PropertyInfo;
+            var member = body.Member as PropertyInfo;
 
             if (member == null)
                 throw new ArgumentException("Expression is not a Property", nameof(property));
