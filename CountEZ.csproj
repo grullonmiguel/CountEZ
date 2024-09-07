@@ -17,8 +17,6 @@
     <Folder Include="Core\Contracts\" />
     <Folder Include="Models\" />
     <Folder Include="Styles\Themes\" />
-    <Folder Include="ViewModels\" />
-    <Folder Include="Views\" />
     <Folder Include="Core\Services\" />
   </ItemGroup>
 
