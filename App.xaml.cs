@@ -1,4 +1,6 @@
-﻿using CountEZ.ViewModels;
+﻿using CountEZ.Core.Contracts;
+using CountEZ.Core.Services;
+using CountEZ.ViewModels;
 using CountEZ.Views;
 using Microsoft.Extensions.DependencyInjection;
 using System.Windows;
@@ -8,6 +10,7 @@ namespace CountEZ
 {
     public partial class App : Application
     {
+
         /// <summary>
         /// Gets the current <see cref="App"/> in use
         /// </summary>
@@ -34,6 +37,7 @@ namespace CountEZ
             var services = new ServiceCollection();
 
             // Core Services
+            services.AddSingleton<IThemeService, ThemeService>();
 
             // Views/ViewModels
             services.AddTransient<ShellView>();
@@ -45,12 +49,11 @@ namespace CountEZ
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            // Start all services
-
             // Load current theme
+            Current?.Services?.GetService<IThemeService>()?.Initialize();
 
             // Load the application's maiin window
-            Current.Services.GetService<ShellView>()?.Show();
+            Current?.Services?.GetService<ShellView>()?.Show();
 
             base.OnStartup(e);
         }
