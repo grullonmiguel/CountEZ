@@ -1,4 +1,5 @@
 ﻿using CountEZ.Core.Contracts;
+using CountEZ.Core.Helpers;
 using CountEZ.Models;
 using CountEZ.Properties;
 using System.Windows;
@@ -9,6 +10,7 @@ namespace CountEZ.Core.Services
     {
         private const string DarkTheme = "pack://application:,,,/Styles/Themes/Dark.xaml";
         private const string LightTheme = "pack://application:,,,/Styles/Themes/Light.xaml";
+        private const string MainStyle = "pack://application:,,,/Styles/Styles.xaml";
 
         public AppTheme CurrentTheme { get; private set; }
 
@@ -30,7 +32,7 @@ namespace CountEZ.Core.Services
             theme ??= AppTheme.Dark.ToString();
 
             // Convert to AppTheme and save
-            SetTheme(Enum.Parse<AppTheme>(theme));
+            SetTheme(theme.ToEnum<AppTheme>());
         }
 
         public void SetTheme(AppTheme theme)
@@ -38,7 +40,8 @@ namespace CountEZ.Core.Services
             CurrentTheme = theme;
 
             // Update Dictionary
-            ThemeDictionary = new ResourceDictionary() {Source = new Uri($"Styles/Themes/{theme}.xaml", UriKind.Relative) };
+            ThemeDictionary = new ResourceDictionary() {Source = new Uri(DarkTheme) };
+            ThemeDictionary.MergedDictionaries.Add(new ResourceDictionary() { Source = new Uri(MainStyle) });
 
             // Save theme name to local settings file
             Settings.Default.ThemeName = CurrentTheme.ToString();

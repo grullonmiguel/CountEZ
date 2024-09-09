@@ -1,4 +1,35 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:options="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options" >
+
+    <!-- Metadata -->
+
+    <!-- COLORS -->
+    <Color x:Key="Theme.AccentColorPrimary">#FCD9AF</Color>
+    <Color x:Key="Theme.AccentColorSecondary">#CCAC83</Color>
+    <Color x:Key="Theme.AccentColorTertiary">#504946</Color>
+    <Color x:Key="Theme.ShowcaseColor">#33FCD9AF</Color>
+
+    <Color x:Key="Theme.BackgroundPrimary">#23272F</Color>
+    <Color x:Key="Theme.BackgroundSecondary">#373E46</Color>
+    <Color x:Key="Theme.BackgroundTertiary">#282D33</Color>
+
+    <Color x:Key="Theme.ForegroundPrimary">#A2AAB2</Color>
+    <Color x:Key="Theme.ForegroundSecondary">#E3E7EB</Color>
+    <Color x:Key="Theme.ForegroundTertiary">#212936</Color>
+
+    <!-- BRUSHES -->
+    <SolidColorBrush x:Key="Brushes.AccentPrimary" Color="{StaticResource Theme.AccentColorPrimary}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.AccentSecondary" Color="{StaticResource Theme.AccentColorSecondary}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.AccentTertiary" Color="{StaticResource Theme.AccentColorTertiary}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.Showcase" Color="{StaticResource Theme.ShowcaseColor}" options:Freeze="True" />
+
+    <SolidColorBrush x:Key="Brushes.BackgroundPrimary" Color="{StaticResource Theme.BackgroundPrimary}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.BackgroundSecondary" Color="{StaticResource Theme.BackgroundSecondary}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.BackgroundTertiary" Color="{StaticResource Theme.BackgroundTertiary}" options:Freeze="True" />
+
+    <SolidColorBrush x:Key="Brushes.ForegroundPrimary" Color="{StaticResource Theme.ForegroundPrimary}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.ForegroundSecondary" Color="{StaticResource Theme.ForegroundSecondary}" options:Freeze="True" />
+    <SolidColorBrush x:Key="Brushes.ForegroundTertiary" Color="{StaticResource Theme.ForegroundTertiary}" options:Freeze="True" />
+
 </ResourceDictionary>

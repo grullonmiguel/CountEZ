@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using Microsoft.Extensions.DependencyInjection;
+using CountEZ.ViewModels;
+using System.Windows;
 
 namespace CountEZ.Views
 {
@@ -7,6 +9,7 @@ namespace CountEZ.Views
         public ShellView()
         {
             InitializeComponent();
+            DataContext = App.Current.Services.GetService<ShellViewModel>();
         }
     }
 }

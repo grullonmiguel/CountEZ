@@ -12,8 +12,20 @@ namespace CountEZ.Models
         [XmlAttribute(AttributeName = "NAME")]
         public string? Name { get; set; }
 
+        [XmlElement(ElementName = "INTEREST_RATE")]
+        public string? InterestRate { get; set; }
+
+        [XmlElement(ElementName = "INTEREST_RATE_COMMENTS")]
+        public string? InterestRateComments { get; set; }
+
+        [XmlElement(ElementName = "REDEMPTION_PERIOD")]
+        public string? RedemptionPeriod { get; set; }
+
+        [XmlElement(ElementName = "REDEMPTION_PERIOD_COMMENTS")]
+        public string? RedemptionPeriodComments { get; set; }
+
         [XmlArray("COUNTIES")]
-        [XmlArrayItem(ElementName ="COUNTY", Type = typeof(US_County))]
+        [XmlArrayItem(ElementName = "COUNTY", Type = typeof(US_County))]
         public List<US_County>? Counties { get; set; }
     }
 }

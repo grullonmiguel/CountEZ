@@ -5,6 +5,6 @@
 
         public static T ToEnum<T>(this string value) where T : struct
             => string.IsNullOrWhiteSpace(value) ?
-               default : (T)Enum.Parse(typeof(Task), value, true);
+               default : (T)Enum.Parse(typeof(T), value, true);
     }
 }
