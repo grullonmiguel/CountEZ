@@ -4,6 +4,15 @@ namespace CountEZ.Models
 {
     #region Enums
 
+    public enum ActivePageType
+    {
+        Welcome,
+        Settings,
+        Steps,
+        US_Counties,
+        US_States
+    }
+
     public enum AppTheme
     {
         Default,

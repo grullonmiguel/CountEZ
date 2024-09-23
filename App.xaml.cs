@@ -44,6 +44,12 @@ namespace CountEZ
             services.AddTransient<ShellView>();
             services.AddTransient<ShellViewModel>();
 
+            services.AddTransient<US_CountiesView>();
+            services.AddTransient<US_CountiesViewModel>();
+
+            services.AddTransient<US_StatesView>();
+            services.AddTransient<US_StatesViewModel>();
+
             // Buid
             return services.BuildServiceProvider();
         }

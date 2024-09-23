@@ -4,12 +4,39 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CountEZ.Views"
+        xmlns:core="clr-namespace:CountEZ.Models"
         Title="CountEZ" 
         Height="768" Width="1024" WindowStartupLocation="CenterScreen" MinHeight="480" MinWidth="440"
         WindowStyle="None" ResizeMode="CanResize" AllowsTransparency="True" Background="Transparent">
     <WindowChrome.WindowChrome>
         <WindowChrome ResizeBorderThickness="12" CornerRadius="0"/>
     </WindowChrome.WindowChrome>
+
+    <Window.Resources>
+
+        <!-- Active View -->
+        <DataTemplate x:Key="ActivePageTemplate">
+            <ContentControl x:Name="ActivePageContentControl" Content="{Binding}" Focusable="False" IsTabStop="False"/>
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding ActivePage}" Value="{x:Static core:ActivePageType.Welcome}">
+                    <Setter TargetName="ActivePageContentControl" Property="ContentTemplate" Value="{StaticResource WelcomeViewTemplate}"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding ActivePage}" Value="{x:Static core:ActivePageType.Settings}">
+                    <Setter TargetName="ActivePageContentControl" Property="ContentTemplate" Value="{StaticResource WelcomeViewTemplate}"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding ActivePage}" Value="{x:Static core:ActivePageType.Steps}">
+                    <Setter TargetName="ActivePageContentControl" Property="ContentTemplate" Value="{StaticResource WelcomeViewTemplate}"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding ActivePage}" Value="{x:Static core:ActivePageType.US_Counties}">
+                    <Setter TargetName="ActivePageContentControl" Property="ContentTemplate" Value="{StaticResource US_CountiesTemplate}"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding ActivePage}" Value="{x:Static core:ActivePageType.US_States}">
+                    <Setter TargetName="ActivePageContentControl" Property="ContentTemplate" Value="{StaticResource US_StatesTemplate}"/>
+                </DataTrigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+    </Window.Resources>
+    
     <Border BorderBrush="Transparent" BorderThickness="4" CornerRadius="8" Background="Transparent">
         <Border Style="{StaticResource BorderWindowStyle}">
             <Grid >
@@ -37,7 +64,24 @@
                     </WrapPanel>
                 </Grid>
 
-                <local:WelcomeView Grid.Row="1" />
+
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button 
+                        Content="States" 
+                        Command="{Binding ViewCommand}"
+                        WindowChrome.IsHitTestVisibleInChrome="True"
+                        CommandParameter="{x:Static core:ActivePageType.US_States}"  />
+                    <Button Margin="16 0"
+                        Content="Counties" 
+                        Command="{Binding ViewCommand}"
+                        WindowChrome.IsHitTestVisibleInChrome="True"
+                        CommandParameter="{x:Static core:ActivePageType.US_Counties}"   />
+                </StackPanel>
+
+                <!--<local:WelcomeView Grid.Row="1" />-->
+
+                <ContentControl Grid.Row="1" Content="{Binding}" ContentTemplate="{StaticResource ActivePageTemplate}"/>
             </Grid>
         </Border>
     </Border>

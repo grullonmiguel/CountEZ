@@ -1,16 +1,30 @@
-﻿using CountEZ.Core.Base;
+﻿using CommunityToolkit.Mvvm.Input;
+using CountEZ.Core.Base;
+using CountEZ.Models;
 using System.Windows;
 using System.Windows.Input;
 
 namespace CountEZ.ViewModels
 {
-    internal class ShellViewModel : Observable
+    internal class ShellViewModel : ViewModelBase
     {
         #region Commands
 
-        public ICommand MinimizeCommand => new RelayCommand(OnMinimize);
-        public ICommand MaximizeCommand => new RelayCommand(OnMaximize);
-        public ICommand CloseCommand => new RelayCommand(OnClose);
+        public ICommand MinimizeCommand => new RelayCommand<object>(OnMinimize);
+        public ICommand MaximizeCommand => new RelayCommand<object>(OnMaximize);
+        public ICommand CloseCommand => new RelayCommand<object>(OnClose);
+        public ICommand ViewCommand => new RelayCommand<ActivePageType>(UpdateView);
+
+        #endregion
+
+        #region Properties
+
+        public ActivePageType ActivePage
+        {
+            get => _activePage;
+            set => SetProperty(ref _activePage, value);
+        }
+        private ActivePageType _activePage;
 
         #endregion
 
@@ -18,7 +32,7 @@ namespace CountEZ.ViewModels
 
         public ShellViewModel()
         {
-            
+            ActivePage = ActivePageType.Welcome;
         }
 
         #endregion
@@ -42,6 +56,9 @@ namespace CountEZ.ViewModels
             if (parameter is Window window)
                 window.Close();
         }
+
+        private void UpdateView(ActivePageType activePage)
+            => ActivePage = activePage;
 
         #endregion
     }
