@@ -9,7 +9,7 @@ namespace CountEZ.Views
         public ShellView()
         {
             InitializeComponent();
-            DataContext = App.Current.Services.GetService<ShellViewModel>();
+            DataContext = App.Current.Services.GetService<ShellViewModel>(); 
         }
     }
 }

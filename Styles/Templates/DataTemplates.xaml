@@ -1,0 +1,74 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- Includes -->
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Geometry.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <DataTemplate x:Key="MapDataTemplate">
+        <Viewbox Stretch="Uniform">
+            <Grid >
+                <Grid.Resources>
+                    <Style TargetType="Path">
+                        <Setter Property="Opacity" Value=".25" />
+                        <Setter Property="StrokeThickness" Value="1" />
+                        <Setter Property="Fill" Value="{DynamicResource Brushes.Showcase}" />
+                        <Setter Property="Stroke" Value="{DynamicResource Brushes.AccentSecondary}" />
+                    </Style>
+                </Grid.Resources>
+                <Path Data="{StaticResource Geometry.AK}" />
+                <Path Data="{StaticResource Geometry.AL}" />
+                <Path Data="{StaticResource Geometry.AZ}" />
+                <Path Data="{StaticResource Geometry.AR}" />
+                <Path Data="{StaticResource Geometry.CA}" />
+                <Path Data="{StaticResource Geometry.CO}" />
+                <Path Data="{StaticResource Geometry.CT}" />
+                <Path Data="{StaticResource Geometry.DC}" />
+                <Path Data="{StaticResource Geometry.DE}" />
+                <Path Data="{StaticResource Geometry.FL}" />
+                <Path Data="{StaticResource Geometry.GA}" />
+                <Path Data="{StaticResource Geometry.HI}" />
+                <Path Data="{StaticResource Geometry.ID}" />
+                <Path Data="{StaticResource Geometry.IL}" />
+                <Path Data="{StaticResource Geometry.IN}" />
+                <Path Data="{StaticResource Geometry.IA}" />
+                <Path Data="{StaticResource Geometry.KS}" />
+                <Path Data="{StaticResource Geometry.KY}" />
+                <Path Data="{StaticResource Geometry.LA}" />
+                <Path Data="{StaticResource Geometry.ME}" />
+                <Path Data="{StaticResource Geometry.MD}" />
+                <Path Data="{StaticResource Geometry.MA}" />
+                <Path Data="{StaticResource Geometry.MI}" />
+                <Path Data="{StaticResource Geometry.MN}" />
+                <Path Data="{StaticResource Geometry.MS}" />
+                <Path Data="{StaticResource Geometry.MO}" />
+                <Path Data="{StaticResource Geometry.MT}" />
+                <Path Data="{StaticResource Geometry.NE}" />
+                <Path Data="{StaticResource Geometry.NV}" />
+                <Path Data="{StaticResource Geometry.NH}" />
+                <Path Data="{StaticResource Geometry.NJ}" />
+                <Path Data="{StaticResource Geometry.NM}" />
+                <Path Data="{StaticResource Geometry.NY}" />
+                <Path Data="{StaticResource Geometry.NC}" />
+                <Path Data="{StaticResource Geometry.ND}" />
+                <Path Data="{StaticResource Geometry.OH}" />
+                <Path Data="{StaticResource Geometry.OK}" />
+                <Path Data="{StaticResource Geometry.OR}" />
+                <Path Data="{StaticResource Geometry.PA}" />
+                <Path Data="{StaticResource Geometry.RI}" />
+                <Path Data="{StaticResource Geometry.SC}" />
+                <Path Data="{StaticResource Geometry.SD}" />
+                <Path Data="{StaticResource Geometry.TN}" />
+                <Path Data="{StaticResource Geometry.TX}" />
+                <Path Data="{StaticResource Geometry.UT}" />
+                <Path Data="{StaticResource Geometry.VT}" />
+                <Path Data="{StaticResource Geometry.VA}" />
+                <Path Data="{StaticResource Geometry.WA}" />
+                <Path Data="{StaticResource Geometry.WV}" />
+                <Path Data="{StaticResource Geometry.WI}" />
+                <Path Data="{StaticResource Geometry.WY}" />
+            </Grid>
+        </Viewbox>
+    </DataTemplate>
+
+</ResourceDictionary>

@@ -4,16 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CountEZ.Views"
-        mc:Ignorable="d"
         Title="CountEZ" 
-        Height="768" Width="1024" WindowStartupLocation="CenterScreen" MinHeight="480" MinWidth="640"
+        Height="768" Width="1024" WindowStartupLocation="CenterScreen" MinHeight="480" MinWidth="440"
         WindowStyle="None" ResizeMode="CanResize" AllowsTransparency="True" Background="Transparent">
     <WindowChrome.WindowChrome>
         <WindowChrome ResizeBorderThickness="12" CornerRadius="0"/>
     </WindowChrome.WindowChrome>
-    <Border BorderBrush="Transparent" BorderThickness="4" CornerRadius="8" Background="Transparent" >
+    <Border BorderBrush="Transparent" BorderThickness="4" CornerRadius="8" Background="Transparent">
         <Border Style="{StaticResource BorderWindowStyle}">
-            <Grid>
+            <Grid >
                 <!-- Row Definitions -->
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -26,17 +25,19 @@
                         <ColumnDefinition />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    
+
                     <!-- Application Logo-->
-                    <TextBlock Text="COUNT-EZ" Foreground="{StaticResource Brushes.AccentSecondary}" Margin="24" />
-                    
+                    <TextBlock Text="COUNT-EZ" Foreground="{StaticResource Brushes.AccentSecondary}" Margin="16 8" />
+
                     <!-- Minimize, Maximize, Close -->
                     <WrapPanel HorizontalAlignment="Right" Panel.ZIndex="100" Grid.Column="2" >
                         <Button Style="{StaticResource Buttons.Minimize}" Command="{Binding MinimizeCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" />
                         <Button Style="{StaticResource Buttons.Maximize}" Command="{Binding MaximizeCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" />
                         <Button Style="{StaticResource Buttons.Close}"    Command="{Binding CloseCommand}"    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" />
                     </WrapPanel>
-                </Grid>   
+                </Grid>
+
+                <local:WelcomeView Grid.Row="1" />
             </Grid>
         </Border>
     </Border>
