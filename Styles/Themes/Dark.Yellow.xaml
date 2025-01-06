@@ -3,18 +3,18 @@
                     xmlns:options="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options" >
 
     <!-- COLORS -->
-    <Color x:Key="Theme.AccentColorPrimary">#FCD9AF</Color>
-    <Color x:Key="Theme.AccentColorSecondary">#CCAC83</Color>
-    <Color x:Key="Theme.AccentColorTertiary">#504946</Color>
-    <Color x:Key="Theme.ShowcaseColor">#33FCD9AF</Color>
+    <Color x:Key="Theme.AccentColorPrimary">#FFFFDD00</Color>
+    <Color x:Key="Theme.AccentColorSecondary">#FFCCB000</Color>
+    <Color x:Key="Theme.AccentColorTertiary">#FFA5CDE6</Color>
+    <Color x:Key="Theme.ShowcaseColor">#33FFDD00</Color>
 
-    <Color x:Key="Theme.BackgroundPrimary">#23272F</Color>
-    <Color x:Key="Theme.BackgroundSecondary">#303541</Color>
-    <Color x:Key="Theme.BackgroundTertiary">#282D33</Color>
+    <Color x:Key="Theme.BackgroundPrimary">#FF282D33</Color>
+    <Color x:Key="Theme.BackgroundSecondary">#FF373E46</Color>
+    <Color x:Key="Theme.BackgroundTertiary">#FF292F34</Color>
 
-    <Color x:Key="Theme.ForegroundPrimary">#A2AAB2</Color>
-    <Color x:Key="Theme.ForegroundSecondary">#E3E7EB</Color>
-    <Color x:Key="Theme.ForegroundTertiary">#212936</Color>
+    <Color x:Key="Theme.ForegroundPrimary">#FFA2AAB2</Color>
+    <Color x:Key="Theme.ForegroundSecondary">#FFE3E7EB</Color>
+    <Color x:Key="Theme.ForegroundTertiary">#FF212936</Color>
 
     <Color x:Key="Theme.BackgroundDeed">#14161B</Color>
     <Color x:Key="Theme.BackgroundLien">#23272F</Color>

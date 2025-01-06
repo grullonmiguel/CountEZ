@@ -8,9 +8,10 @@ namespace CountEZ.Core.Services
 {
     internal class ThemeService : IThemeService
     {
-        private const string DarkTheme = "pack://application:,,,/Styles/Themes/Dark.xaml";
-        private const string LightTheme = "pack://application:,,,/Styles/Themes/Light.xaml";
         private const string MainStyle = "pack://application:,,,/Styles/Styles.xaml";
+        private const string LightTheme = "pack://application:,,,/Styles/Themes/Light.xaml";
+        private const string DarkTheme = "pack://application:,,,/Styles/Themes/Dark.xaml";
+        private const string DarkYellow = "pack://application:,,,/Styles/Themes/Dark.Yellow.xaml";
 
         public AppTheme CurrentTheme { get; private set; }
 
@@ -29,7 +30,7 @@ namespace CountEZ.Core.Services
             var theme = Settings.Default.ThemeName;
 
             // Default to dark theme if settings not found
-            theme ??= AppTheme.Dark.ToString();
+            theme ??= AppTheme.DarkYellow.ToString();
 
             // Convert to AppTheme and save
             SetTheme(theme.ToEnum<AppTheme>());
@@ -40,7 +41,7 @@ namespace CountEZ.Core.Services
             CurrentTheme = theme;
 
             // Update Dictionary
-            ThemeDictionary = new ResourceDictionary() {Source = new Uri(DarkTheme) };
+            ThemeDictionary = new ResourceDictionary() {Source = new Uri(DarkYellow) };
             ThemeDictionary.MergedDictionaries.Add(new ResourceDictionary() { Source = new Uri(MainStyle) });
 
             // Save theme name to local settings file

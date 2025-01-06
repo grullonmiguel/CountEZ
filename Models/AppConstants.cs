@@ -16,8 +16,9 @@ namespace CountEZ.Models
     public enum AppTheme
     {
         Default,
+        Light,
         Dark,
-        Light
+        DarkYellow
     }
 
     /// <summary>
@@ -39,10 +40,19 @@ namespace CountEZ.Models
     public enum SaleTypeCode
     {
         Unknown = 0,
-        [Description("Hybrid")] Hybrid = 1,
-        [Description("Tax Deed")] TaxDeed = 2,
-        [Description("Tax Lien")] TaxLien = 3,
-        [Description("Redeemable Deed")] RedeemableDeed = 4
+        [Description("Tax Deed")] Deed = 1,
+        [Description("Hybrid")] Hybrid = 2,
+        [Description("Tax Lien")] Lien = 3,
+        [Description("Redeemable Deed")] Redeemable = 4
+    }
+
+    public enum GoogleMapType
+    {
+        Map,
+        Satellite,
+        Hybrid,
+        Terrain,
+        Earth
     }
 
     /// <summary>
@@ -105,8 +115,10 @@ namespace CountEZ.Models
 
     #endregion
 
-    internal static class AppConstants
+    internal static class AppConstants 
     {
-        
+        public const int LAYOUT_SMALL = 650;
+        public const int LAYOUT_MEDIUM = 1067;
+        public const int LAYOUT_LARGE = 1280;
     }
 }

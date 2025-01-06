@@ -1,0 +1,51 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="TextBlocks.Base" TargetType="{x:Type TextBlock}">
+        <Setter Property="LineHeight" Value="24"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="TextWrapping" Value="WrapWithOverflow"/>
+        <Setter Property="FontSize" Value="{DynamicResource Fonts.Medium}"/>
+        <Setter Property="Foreground" Value="{DynamicResource Brushes.ForegroundPrimary}"/>
+    </Style>
+
+    <Style BasedOn="{StaticResource TextBlocks.Base}" TargetType="{x:Type TextBlock}">
+    </Style>
+
+    <Style x:Key="TextBlocks.Heading1"  BasedOn="{StaticResource TextBlocks.Base}" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontSize" Value="{DynamicResource Fonts.3Xlarge}"/>
+        <Setter Property="Foreground" Value="{DynamicResource Brushes.AccentPrimary}"/>
+    </Style>
+
+    <Style x:Key="TextBlocks.Heading2"  BasedOn="{StaticResource TextBlocks.Base}" TargetType="{x:Type TextBlock}">
+        <Setter Property="LineHeight" Value="32"/>
+        <Setter Property="FontSize" Value="{DynamicResource Fonts.MediumLarge}"/>
+        <Setter Property="Foreground" Value="{DynamicResource Brushes.ForegroundPrimary}"/>
+    </Style>
+
+    <Style x:Key="TextBlocks.Title"  BasedOn="{StaticResource TextBlocks.Base}" TargetType="{x:Type TextBlock}">
+        <Setter Property="Margin" Value="0 0 0 0"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="FontSize" Value="{DynamicResource Fonts.2Xlarge}"/>
+        <Setter Property="Foreground" Value="{DynamicResource Brushes.Showcase}"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="1" Direction="-90" Color="#FFFFFF"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="TextBlocks.SmallPrimary"  BasedOn="{StaticResource TextBlocks.Base}" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontSize" Value="{DynamicResource Fonts.XSmall}"/>
+        <Setter Property="Foreground" Value="{DynamicResource Brushes.ForegroundPrimary}"/>
+        <Setter Property="LineHeight" Value="1"/>
+    </Style>
+
+    <Style x:Key="TextBlocks.SmallSecondary"  BasedOn="{StaticResource TextBlocks.Base}" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontSize" Value="{DynamicResource Fonts.XSmall}"/>
+        <Setter Property="Foreground" Value="{DynamicResource Brushes.ForegroundSecondary}"/>
+    </Style>
+</ResourceDictionary>

@@ -32,7 +32,7 @@ namespace CountEZ.ViewModels
 
         public ShellViewModel()
         {
-            ActivePage = ActivePageType.Welcome;
+            ActivePage = ActivePageType.US_States;
         }
 
         #endregion

@@ -1,0 +1,49 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:CountEZ.Styles.Controls">
+
+    <!-- ******************************* Virtualised ItemsControl ******************************* -->
+    <!-- https://stackoverflow.com/questions/2783845/virtualizing-an-itemscontrol/2784220#2784220 -->
+    <!-- **************************************************************************************** -->
+    <Style x:Key="ItemsControls.Counties" TargetType="ItemsControl">
+        <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
+        <Setter Property="ItemTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <Button 
+                         Width="225"
+                         Margin="0,0,4,8" 
+                         VerticalAlignment="Top"
+                         Style="{DynamicResource Buttons.County}"
+                         Command="{Binding DataContext.OnCountySelectedCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                         CommandParameter="{Binding}" >
+                    </Button>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>    
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <controls:VirtualizingWrapPanel IsVirtualizing="True" VirtualizationMode="Recycling" Orientation="Horizontal" HorizontalAlignment="Left" />
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ItemsControl">
+                    <Border
+                        BorderThickness="{TemplateBinding Border.BorderThickness}"
+                        Padding="{TemplateBinding Control.Padding}"
+                        BorderBrush="{TemplateBinding Border.BorderBrush}"
+                        Background="{TemplateBinding Panel.Background}"
+                        SnapsToDevicePixels="True">
+                        <ScrollViewer Padding="{TemplateBinding Control.Padding}" Focusable="False">
+                            <ItemsPresenter SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+                        </ScrollViewer>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+</ResourceDictionary>

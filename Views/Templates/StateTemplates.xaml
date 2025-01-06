@@ -1,0 +1,393 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--#region USA Map -->
+
+    <DataTemplate x:Key="USMapTemplate">
+        <Viewbox VerticalAlignment="Top">
+            <ItemsControl 
+                 Style="{x:Null}"  
+                 Grid.IsSharedSizeScope="True"
+                 ItemsSource="{Binding States}" 
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Grid />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <RadioButton 
+                             ToolTipService.InitialShowDelay="30000"
+                             Tag="{Binding Name}" 
+                             Content="{Binding StateID}" 
+                             IsChecked="{Binding IsSelected}"
+                             Style="{DynamicResource RadioButtons.State}" 
+                             Command="{Binding DataContext.StateSelectedCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" 
+                             CommandParameter="{Binding StateID}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Viewbox>
+    </DataTemplate>
+
+    <DataTemplate x:Key="MapColorIndicatorTemplate">
+        <StackPanel Orientation="Horizontal">
+            <WrapPanel>
+                <Border Width="24" Height="20" Background="{DynamicResource Brushes.BackgroundDeed}" />
+                <TextBlock Text="Tax Deed" Margin="8 6 0 0" FontSize="12" VerticalAlignment="Center"/>
+            </WrapPanel>
+            <WrapPanel Margin="16 0 0 0">
+                <Border Width="24" Height="20" Background="{DynamicResource Brushes.BackgroundLien}" />
+                <TextBlock Text="Tax Lien" Margin="8 6 0 0" FontSize="12" VerticalAlignment="Center"/>
+            </WrapPanel>
+            <WrapPanel Margin="16 0 0 0">
+                <Border Width="24" Height="20" Background="{DynamicResource Brushes.BackgroundRedeem}" />
+                <TextBlock Text="Reedemable" Margin="8 6 0 0" FontSize="12" VerticalAlignment="Center"/>
+            </WrapPanel>
+            <WrapPanel Margin="16 0 0 0">
+                <Border Width="24" Height="20" Background="{DynamicResource Brushes.BackgroundHybrid}" />
+                <TextBlock Text="Hybrid" Margin="8 6 0 0" FontSize="12" VerticalAlignment="Center"/>
+            </WrapPanel>
+        </StackPanel>
+    </DataTemplate>
+    
+    <!--#endregion-->
+    
+    <!--#region State Templates -->
+
+    <!-- State List Template - Multiple Columns -->
+    <DataTemplate x:Key="StateListTemplate">
+        <Border Style="{DynamicResource Borders.Secondary}">
+            <DataGrid ItemsSource="{Binding Path=States}" SelectedItem="{Binding StateSelected}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="" Binding="{Binding Count}" Width="40"/>
+                    <DataGridTextColumn Header="State" Binding="{Binding Name}" Width="110" />
+                    <DataGridTextColumn Header="Type" Binding="{Binding SalesType, Converter={StaticResource EnumDescriptionConverter}}" Width="95"/>
+                    <DataGridTextColumn Header="Interest" Binding="{Binding InterestRate}" ToolTipService.ToolTip="{Binding InterestRateComments}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+    </DataTemplate>
+    
+    <!-- State List Template - State Name only -->
+    <DataTemplate x:Key="StateListSecondaryTemplate">
+        <Border Style="{DynamicResource Borders.Secondary}">
+            <DataGrid ItemsSource="{Binding Path=States}" SelectedItem="{Binding StateSelected}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="" Binding="{Binding Count}" Width="40"/>
+                    <DataGridTextColumn Header="State" Binding="{Binding Name}" Width="110" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+    </DataTemplate>
+
+    <!-- State Selected Template -->
+    <DataTemplate x:Key="StateSelectedTemplate">
+        <Border Style="{DynamicResource Borders.Primary}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- State Name -->
+                <TextBlock Text="{Binding StateSelected.Name}" Style="{DynamicResource TextBlocks.Heading1}" Grid.ColumnSpan="2" TextWrapping="NoWrap"/>
+
+                <!-- Sales Type-->
+                <TextBlock Text="{Binding StateSelected.SalesType, Converter={StaticResource EnumDescriptionConverter}}" Style="{DynamicResource TextBlocks.Heading2}" Grid.Row="1" Grid.ColumnSpan="2" Foreground="{DynamicResource Brushes.ForegroundSecondary}"/>
+
+                <!-- Interest Rate -->
+                <StackPanel Grid.Row="2" Margin="0 8 0 0">
+                    <TextBlock Text="interest rate" Style="{DynamicResource TextBlocks.SmallPrimary}" />
+                    <TextBlock Text="{Binding StateSelected.InterestRate}" Foreground="{DynamicResource Brushes.ForegroundSecondary}" />
+                </StackPanel>
+
+                <!-- redemption period -->
+                <StackPanel Grid.Row="2" Grid.Column="1" Margin="0 8 0 0" HorizontalAlignment="Right">
+                    <TextBlock Text="redemption period" Style="{DynamicResource TextBlocks.SmallPrimary}" />
+                    <TextBlock Text="{Binding StateSelected.RedemptionPeriod}" Foreground="{DynamicResource Brushes.ForegroundSecondary}"/>
+                </StackPanel>
+
+                <!-- Frequency -->
+                <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Margin="0 8 0 0">
+                    <TextBlock Text="frequency"  Style="{DynamicResource TextBlocks.SmallPrimary}" />
+                    <TextBlock Text="{Binding StateSelected.Frequency}" Foreground="{DynamicResource Brushes.ForegroundSecondary}"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </DataTemplate>
+
+    <!-- State Secondary Template -->
+    <DataTemplate x:Key="StateSelectedSecondaryTemplate">
+        <Border Style="{DynamicResource Borders.Primary}">
+            <StackPanel>
+                <!-- State Name -->
+                <TextBlock Text="{Binding StateSelected.Name}" Style="{DynamicResource TextBlocks.Heading1}" TextWrapping="NoWrap" />
+                <!-- Sales Type-->
+                <TextBlock Text="{Binding StateSelected.SalesType, Converter={StaticResource EnumDescriptionConverter}}" Style="{DynamicResource TextBlocks.Heading2}" TextWrapping="NoWrap" Foreground="{DynamicResource Brushes.ForegroundSecondary}"/>
+                <!-- Interest Rate / Redemption -->
+                <Grid Margin="0 8 0 0" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <!-- Interest Rate -->
+                    <StackPanel>
+                        <TextBlock Text="interest" Style="{DynamicResource TextBlocks.SmallPrimary}" />
+                        <TextBlock Text="{Binding StateSelected.InterestRate}" Foreground="{DynamicResource Brushes.ForegroundSecondary}"/>
+                    </StackPanel>
+                    <!-- redemption period -->
+                    <StackPanel Grid.Column="1" HorizontalAlignment="Right">
+                        <TextBlock Text="redemption" Style="{DynamicResource TextBlocks.SmallPrimary}" />
+                        <TextBlock Text="{Binding StateSelected.RedemptionPeriod}" Foreground="{DynamicResource Brushes.ForegroundSecondary}"/>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </Border>
+    </DataTemplate>
+
+    <!-- State Tertiary Template -->
+    <DataTemplate x:Key="StateSelectedTertiaryTemplate">
+        <Border Style="{DynamicResource Borders.Primary}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- State Name -->
+                <TextBlock Text="{Binding StateSelected.Name}" Style="{DynamicResource TextBlocks.Heading1}" Grid.ColumnSpan="2" TextWrapping="NoWrap" FontSize="{DynamicResource Fonts.large}"/>
+  
+                <!-- sales type -->
+                <StackPanel Grid.Row="1"  Grid.Column="0" Margin="0 8 0 0">
+                    <TextBlock Text="type" Style="{DynamicResource TextBlocks.SmallPrimary}" />
+                    <TextBlock Text="{Binding StateSelected.SalesType, Converter={StaticResource EnumDescriptionConverter}}" Foreground="{DynamicResource Brushes.ForegroundSecondary}"/>
+                </StackPanel>
+                
+                <!-- Interest Rate -->
+                <StackPanel Grid.Row="1"  Grid.Column="1" Margin="0 8 0 0" HorizontalAlignment="Center">
+                    <TextBlock Text="interest rate" Style="{DynamicResource TextBlocks.SmallPrimary}"  HorizontalAlignment="Left"/>
+                    <TextBlock Text="{Binding StateSelected.InterestRate}" HorizontalAlignment="Left" Foreground="{DynamicResource Brushes.ForegroundSecondary}"/>
+                </StackPanel>
+
+                <!-- redemption period -->
+                <StackPanel Grid.Row="1" Grid.Column="2" Margin="0 8 0 0" HorizontalAlignment="Right">
+                    <TextBlock Text="redemption period" Style="{DynamicResource TextBlocks.SmallPrimary}" />
+                    <TextBlock Text="{Binding StateSelected.RedemptionPeriod}" Foreground="{DynamicResource Brushes.ForegroundSecondary}"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </DataTemplate>
+    
+    <!--#endregion-->
+
+    <!--#region County Templates -->
+
+    <!-- County Count Template -->
+    <DataTemplate x:Key="StateCountyCountTemplate">
+        <TextBlock Foreground="{DynamicResource Brushes.Showcase}">
+            <Run Text="{Binding StateSelected.Counties.Count, Mode=OneWay}" /> <Run Text="Counties" />
+        </TextBlock>
+    </DataTemplate>
+
+    <!-- State List Template -->
+    <DataTemplate x:Key="CountyListTemplate">
+        <ItemsControl ItemsSource="{Binding Path=Counties}" Style="{DynamicResource ItemsControls.Counties}" />
+    </DataTemplate>
+
+    <!--#endregion-->
+
+    <!-- Small Layout -->
+    <DataTemplate x:Key="StateViewSmallLayout">
+        <Grid>
+            <!-- Definitions -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition  />
+            </Grid.ColumnDefinitions>
+            
+            <!-- State List -->
+            <ContentControl Grid.Column="0" Margin="16 0 8 8" Content="{Binding}" ContentTemplate="{StaticResource StateListSecondaryTemplate}" />
+
+            <!-- Main Content -->
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="230" />
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- State Selected -->
+                <Border Grid.Row="0" Style="{DynamicResource Borders.Secondary}" Margin="8 0 8 8" >
+                    <ContentControl Content="{Binding}" ContentTemplate="{StaticResource StateSelectedSecondaryTemplate}" />
+                </Border>
+
+                <!-- County List -->
+                <Border Grid.Row="1" Style="{DynamicResource Borders.Secondary}" Margin="8" >
+                    <Grid>
+                        <!-- County Count-->
+                        <ContentControl  Content="{Binding}" ContentTemplate="{StaticResource StateCountyCountTemplate}"/>
+
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="4 -10 0 0">
+
+                            <!-- Best Counties Search -->
+                            <Button Content="Best Counties"
+                                    FontSize="{DynamicResource Fonts.Small}"
+                                    Style="{DynamicResource Buttons.HyperlinkExternal}"
+                                    Command="{Binding BestCountiesCommand}" />
+
+                            <!-- Worst Counties Search -->
+                            <Button Content="Worst Counties" Margin="16 0 0 0"
+                                    FontSize="{DynamicResource Fonts.Small}"
+                                    Style="{DynamicResource Buttons.HyperlinkExternal}"
+                                    Command="{Binding WorstCountiesCommand}"  />
+                        </StackPanel>
+                        
+                        <!-- County List-->
+                        <ContentControl Margin="0 20 0 0" Content="{Binding}" ContentTemplate="{StaticResource CountyListTemplate}"/>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+    </DataTemplate>
+
+    <!-- Medium Layout -->
+    <DataTemplate x:Key="StateViewMediumLayout">
+        <Grid>
+            <!-- Definitions -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition  />
+            </Grid.ColumnDefinitions>
+
+            <!-- State List -->
+            <ContentControl Grid.Column="0" Margin="16 0 8 8" Content="{Binding}" ContentTemplate="{StaticResource StateListSecondaryTemplate}" />
+
+            <!-- Main -->
+            <Border Grid.Column="1" Style="{DynamicResource Borders.Secondary}" Margin="8 0 8 8">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="120" />
+                        <RowDefinition />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    
+                    <!-- State Selected -->
+                    <ContentControl Grid.Row="0" Content="{Binding}" ContentTemplate="{StaticResource StateSelectedTertiaryTemplate}" Margin="0 0 0 8"/>
+
+                    <!-- US Map -->
+                    <ContentControl Grid.Row="1" Content="{Binding}" ContentTemplate="{StaticResource USMapTemplate}" HorizontalAlignment="Left" />
+
+
+                    <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="4 0 0 0">
+
+                        <!-- County Count-->
+                        <ContentControl Content="{Binding}" ContentTemplate="{StaticResource StateCountyCountTemplate}"/>
+
+                        <!-- Best Counties Search -->
+                        <Button Content="Best Counties"
+                                    Margin="24 0"
+                                    FontSize="{DynamicResource Fonts.Small}"
+                                    Style="{DynamicResource Buttons.HyperlinkExternal}"
+                                    Command="{Binding BestCountiesCommand}" />
+
+                        <!-- Worst Counties Search -->
+                        <Button Content="Worst Counties" 
+                                    FontSize="{DynamicResource Fonts.Small}"
+                                    Style="{DynamicResource Buttons.HyperlinkExternal}"
+                                    Command="{Binding WorstCountiesCommand}"  />
+                    </StackPanel>
+                    
+                    <!-- County List-->
+                    <ContentControl Grid.Row="3" Margin="0 4 0 0"  Content="{Binding}" ContentTemplate="{StaticResource CountyListTemplate}"/>
+                </Grid>
+            </Border>
+        </Grid>
+    </DataTemplate>
+
+    <!-- Large Layout -->
+    <DataTemplate x:Key="StateViewLargeLayout">
+        <Grid>
+            <!-- Definitions -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition  />
+            </Grid.ColumnDefinitions>
+
+            <!-- State List -->
+            <ContentControl Grid.Column="0" Margin="16 0 8 8" Content="{Binding}" ContentTemplate="{StaticResource StateListTemplate}" />
+
+            <!-- Content -->
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>                
+                <!-- Map -->
+                <Border Grid.Row="0" Style="{DynamicResource Borders.Secondary}" Margin="8 0 8 8" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="4.5*" />
+                            <ColumnDefinition Width="2*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- US Map -->
+                        <ContentControl Margin="-16 -12 0 0" Content="{Binding}" ContentTemplate="{StaticResource USMapTemplate}" />
+
+                        <!-- State Selected -->
+                        <ContentControl Grid.Column="1"  Content="{Binding}" ContentTemplate="{StaticResource StateSelectedTemplate}" />
+                        
+                        <!-- Saless Type Color Indicator -->
+                        <ContentControl Grid.Column="0"  Content="{Binding}" ContentTemplate="{StaticResource MapColorIndicatorTemplate}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 16 -14"/>
+
+                    </Grid>
+                </Border>
+
+                <!-- Counties -->
+                <Border Grid.Row="1" Style="{DynamicResource Borders.Secondary}" Margin="8" >
+                    <Grid>
+                        <StackPanel Orientation="Horizontal" Margin="4 -12 0 0" VerticalAlignment="Top" >
+                            
+                            <!-- County Count-->
+                            <ContentControl Content="{Binding}" ContentTemplate="{StaticResource StateCountyCountTemplate}"/>
+
+                            <!-- Best Counties Search -->
+                            <Button Content="Best Counties"
+                                    Margin="24 0"
+                                    FontSize="{DynamicResource Fonts.Small}"
+                                    Style="{DynamicResource Buttons.HyperlinkExternal}"
+                                    Command="{Binding BestCountiesCommand}" />
+
+                            <!-- Worst Counties Search -->
+                            <Button Content="Worst Counties" 
+                                    FontSize="{DynamicResource Fonts.Small}"
+                                    Style="{DynamicResource Buttons.HyperlinkExternal}"
+                                    Command="{Binding WorstCountiesCommand}"  />
+                        </StackPanel>
+                        
+                        <!-- County List -->
+                        <ContentControl Margin="0 20 0 0" Content="{Binding}" ContentTemplate="{StaticResource CountyListTemplate}"/>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+    </DataTemplate>
+
+</ResourceDictionary>

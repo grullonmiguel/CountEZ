@@ -1,16 +1,20 @@
-﻿using System.Xml.Serialization;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System.Xml.Serialization;
 
 namespace CountEZ.Models
 {
     [Serializable]
     [XmlRoot("STATE", Namespace = "", IsNullable = false)]
-    internal class US_State
+    internal class US_State : ObservableObject
     {
         [XmlAttribute(AttributeName = "ID")]
         public StateCode StateID { get; set; }
 
         [XmlAttribute(AttributeName = "NAME")]
         public string? Name { get; set; }
+
+        [XmlAttribute(AttributeName = "SALES_TYPE")]
+        public SaleTypeCode SalesType { get; set; }
 
         [XmlElement(ElementName = "INTEREST_RATE")]
         public string? InterestRate { get; set; }
@@ -27,5 +31,17 @@ namespace CountEZ.Models
         [XmlArray("COUNTIES")]
         [XmlArrayItem(ElementName = "COUNTY", Type = typeof(US_County))]
         public List<US_County>? Counties { get; set; }
+
+        [XmlAttribute(AttributeName = "FREQUENCY")]
+        public string? Frequency { get; set; }
+
+        public int Count => Counties == null ? 0 : Counties.Count;
+
+        public bool IsSelected
+        {
+            get => _isSelected;
+            set => SetProperty(ref _isSelected, value);
+        }
+        private bool _isSelected;
     }
 }

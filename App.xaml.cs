@@ -38,6 +38,7 @@ namespace CountEZ
 
             // Core Services
             services.AddSingleton<IStateDataService, StateDataService>();
+            services.AddSingleton<ISystemService, SystemService>();
             services.AddSingleton<IThemeService, ThemeService>();
 
             // Views/ViewModels

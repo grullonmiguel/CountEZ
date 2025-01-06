@@ -4,11 +4,84 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CountEZ.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <Viewbox Stretch="Uniform" StretchDirection="DownOnly">
-            <TextBlock Text="Counties" FontSize="60" Opacity=".5" Foreground="{DynamicResource Brushes.Showcase}"/>
-        </Viewbox>
-    </Grid>
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors">
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <Border>
+
+        <Grid x:Name="countiesRoot" >
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            
+            <!-- Title -->
+            <TextBlock Text="C O U N T I E S" Style="{StaticResource TextBlocks.Title}"/>
+
+            <ListView 
+                Margin="0 24 0 0"
+                Grid.Row="1"
+                x:Name="CountiesList" 
+                ItemsSource="{Binding Path=CountiesCollection}" 
+                SelectedItem="{Binding Path=CountySelected}" 
+                VirtualizingStackPanel.IsVirtualizing="True"
+                GridViewColumnHeader.Click="OnHeaderClick">
+                <ListView.View>
+                    <GridView AllowsColumnReorder="True">
+                        <GridViewColumn DisplayMemberBinding="{Binding StateID, Converter={StaticResource EnumDescriptionConverter}}">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="State" />
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Name}">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="Name" />
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Phone}">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="Phone" />
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Street}">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="Street" />
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding City}">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="City" />
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Zip}">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="Zip" />
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Website" >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <!--<StackPanel Orientation="Horizontal">
+                                        <ContentControl 
+                                            Style="{DynamicResource CheckOutlineIcon}"  
+                                            Visibility="{Binding IsValidURL, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                                        <ContentControl 
+                                            Style="{DynamicResource AlertOutlineIcon}"  
+                                            Visibility="{Binding IsValidURL, Converter={StaticResource BooleanToVisibilityInverseConverter}, ConverterParameter=Inverted}"/>
+                                        <TextBlock Text="{Binding URL}" />
+                                    </StackPanel>-->
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+    </Border>
 </UserControl>

@@ -25,7 +25,7 @@ namespace CountEZ.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Dark")]
+        [global::System.Configuration.DefaultSettingValueAttribute("DarkYellow")]
         public string ThemeName {
             get {
                 return ((string)(this["ThemeName"]));
