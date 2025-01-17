@@ -14,7 +14,10 @@
                 <ResourceDictionary Source="pack://application:,,,/Views/Templates/AlaskaMap.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/Views/Templates/ArkansasMap.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/Views/Templates/ArizonaMap.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Views/Templates/CaliforniaMap.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Views/Templates/ColoradoMap.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/Views/Templates/ConnecticutMap.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Views/Templates/DCMap.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/Views/Templates/DelawareMap.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/Views/Templates/FloridaMap.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/Views/Templates/HawaiiMap.xaml" />
@@ -124,9 +127,21 @@
                                     <DataTrigger Binding="{Binding Path=ID}" Value="AR">
                                         <Setter Property="ContentTemplate" Value="{StaticResource Arkansas_DataTemplate}" />
                                     </DataTrigger>
+                                    <!-- California -->
+                                    <DataTrigger Binding="{Binding Path=ID}" Value="CA">
+                                        <Setter Property="ContentTemplate" Value="{StaticResource California_DataTemplate}" />
+                                    </DataTrigger>
+                                    <!-- Colorado -->
+                                    <DataTrigger Binding="{Binding Path=ID}" Value="CO">
+                                        <Setter Property="ContentTemplate" Value="{StaticResource Colorado_DataTemplate}" />
+                                    </DataTrigger>
                                     <!-- Connecticut -->
                                     <DataTrigger Binding="{Binding Path=ID}" Value="CT">
                                         <Setter Property="ContentTemplate" Value="{StaticResource Connecticut_DataTemplate}" />
+                                    </DataTrigger>
+                                    <!-- D.C. -->
+                                    <DataTrigger Binding="{Binding Path=ID}" Value="DC">
+                                        <Setter Property="ContentTemplate" Value="{StaticResource DC_DataTemplate}" />
                                     </DataTrigger>
                                     <!-- Delaware -->
                                     <DataTrigger Binding="{Binding Path=ID}" Value="DE">

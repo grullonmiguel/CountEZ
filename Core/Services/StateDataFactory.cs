@@ -314,6 +314,7 @@ namespace CountEZ.Core.Services
             InterestRate = "18%",
             RedemptionPeriod = "2 - 3 Years",
             Frequency = "",
+            CanShowCountyMap = true,
             Counties =
             [
                 GetCounty(state, "Alameda",         "6001"),
@@ -386,6 +387,7 @@ namespace CountEZ.Core.Services
             RedemptionPeriodComments = "",
             RedemptionPeriod = "3 Years",
             Frequency = "Annually in Fall",
+            CanShowCountyMap = true,
             Counties =
             [
                 GetCounty(state, "Adams",       "8001"),
@@ -483,6 +485,7 @@ namespace CountEZ.Core.Services
             SalesType = SaleTypeCode.Lien,
             InterestRate = "",
             RedemptionPeriod = "",
+            CanShowCountyMap = true,
             Counties =
             [
                 GetCounty(state, "District of Columbia", "11001")

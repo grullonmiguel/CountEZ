@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <Style x:Key="RadioButtons.Alaska" TargetType="{x:Type RadioButton}" BasedOn="{StaticResource RadioButtons.States.Base}">
+    <Style x:Key="RadioButtons.DC" TargetType="{x:Type RadioButton}" BasedOn="{StaticResource RadioButtons.States.Base}">
         <Setter Property="GroupName" Value="rdoAlabama" />
         <Setter Property="Template">
             <Setter.Value>
@@ -11,8 +11,8 @@
                             <Path.Style>
                                 <Style TargetType="Path">
                                     <Style.Triggers>
-                                        <DataTrigger Binding="{Binding Name}" Value="" >
-                                            <Setter Property="Data" Value="" />
+                                        <DataTrigger Binding="{Binding Name}" Value="District of Columbia" >
+                                            <Setter Property="Data" Value="M281.009,533.978l35.092-57.128l32.672,16.939l74.705,38.469l-68.399,107.377l-4.585-40.76l-16.878-32.801l-28.723-12.608   L281.009,533.978" />
                                         </DataTrigger>
                                     </Style.Triggers>
                                 </Style>
@@ -24,7 +24,7 @@
         </Setter>
     </Style>
 
-    <DataTemplate x:Key="Alaska_DataTemplate">
+    <DataTemplate x:Key="DC_DataTemplate">
         <Viewbox VerticalAlignment="Center">
             <ItemsControl 
                 Style="{x:Null}"  
@@ -43,7 +43,7 @@
 							Tag="{Binding Name}" 
 							Content="{Binding Name}" 
 							IsChecked="{Binding IsSelected}"
-							Style="{DynamicResource RadioButtons.Alaska}" 
+							Style="{DynamicResource RadioButtons.DC}" 
 							Command="{Binding DataContext.CountySelectedCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" 
 							CommandParameter="{Binding Name}"/>
                     </DataTemplate>
