@@ -86,6 +86,14 @@
                 </StackPanel>-->
 
                 <ContentControl Grid.Row="1" Content="{Binding}" ContentTemplate="{StaticResource ActivePageTemplate}"/>
+
+                <!-- Dialog -->
+                <ContentControl 
+                    Grid.RowSpan="2"
+                    Content="{Binding CurrentDialogViewModel}" 
+                    Style="{StaticResource ContentControl.Dialog}" 
+                    Background="{Binding CurrentDialogViewModel.MainBackground}"
+                    Visibility="{Binding IsDialogVisible, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Hidden}" />
             </Grid>
         </Border>
     </Border>

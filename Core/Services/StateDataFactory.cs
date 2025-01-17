@@ -74,6 +74,7 @@ namespace CountEZ.Core.Services
             InterestRate = "12%",
             RedemptionPeriod = "3 Years",
             Frequency = "Annually from Apr to Jun",
+            CanShowCountyMap = true,
             Counties =
             [
                 GetCounty(state, "Autauga",      "1001"),
@@ -153,6 +154,7 @@ namespace CountEZ.Core.Services
             InterestRate = "12%",
             RedemptionPeriod = "3 Years",
             Frequency = "Annually from Apr to Jun",
+            CanShowCountyMap = true,
             Counties =
             [
                 GetCounty(state, "Aleutians East",       "2013"),
@@ -195,6 +197,7 @@ namespace CountEZ.Core.Services
             InterestRate = "16%",
             RedemptionPeriod = "",
             Frequency = "Annually in February",
+            CanShowCountyMap = true,
             Counties =
             [
                 GetCounty(state, "Apache",       "4001"),
@@ -223,6 +226,7 @@ namespace CountEZ.Core.Services
             RedemptionPeriod = "30 Days",
             RedemptionPeriodComments = "30 Day Redemption Period - 90 Day Litigation Period",
             Frequency = "Annually Typically During Summer Months",
+            CanShowCountyMap = true,
             Counties =
             [
                 GetCounty(state, "Arkansas",    "5001"),
@@ -459,17 +463,17 @@ namespace CountEZ.Core.Services
             RedemptionPeriod = "1 Year",
             RedemptionPeriodComments = "1 Year With 18% Penalty",
             Frequency = "Annually – Varies Throughout Year",
+            CanShowCountyMap = true,
             Counties =
             [
-                GetCounty(state, "Capitol",                 "9110"),
-                GetCounty(state, "Greater Bridgeport",      "9120"),
-                GetCounty(state, "Lower CT River Valley",   "9130"),
-                GetCounty(state, "Naugatuck Valley",        "9140"),
-                GetCounty(state, "Northeastern CT",         "9150"),
-                GetCounty(state, "Northwest Hills",         "9160"),
-                GetCounty(state, "South Central CT",        "9170"),
-                GetCounty(state, "Southeastern CT",         "9180"),
-                GetCounty(state, "Western Connecticut",     "9190")
+                GetCounty(state, "Fairfield",   "9110"),
+                GetCounty(state, "Hartford",    "9120"),
+                GetCounty(state, "Litchfield",  "9130"),
+                GetCounty(state, "Middlesex",   "9140"),
+                GetCounty(state, "New Haven",   "9150"),
+                GetCounty(state, "New London",  "9160"),
+                GetCounty(state, "Tolland",     "9170"),
+                GetCounty(state, "Windham",     "9180")
             ]
         };
 
@@ -493,6 +497,7 @@ namespace CountEZ.Core.Services
             RedemptionPeriod = "1 Year",
             RedemptionPeriodComments = "1 Year With 20% Interest or 60 Days With 15% Penalty, Determined by County",
             Frequency = "Quarterly or Monthly Based on County",
+            CanShowCountyMap = true,
             Counties =
             [
                 GetCounty(state, "Kent",        "10001"),
@@ -508,6 +513,7 @@ namespace CountEZ.Core.Services
             InterestRate = "18%",
             RedemptionPeriod = "2 Years",
             Frequency = "Throughout the Year Per County",
+            CanShowCountyMap = true,
             Counties =
             [
             GetCounty(state, "Alachua",         "12001"),
@@ -760,6 +766,7 @@ namespace CountEZ.Core.Services
             RedemptionPeriod = "1 Year",
             RedemptionPeriodComments = "1 Year With 1% Monthly Interest",
             Frequency = "Yearly – Varies County by County",
+            CanShowCountyMap = true,
             Counties =
             [
                 GetCounty(state, "Hawaii", "15001"),
@@ -3397,6 +3404,7 @@ namespace CountEZ.Core.Services
             InterestRate = "",
             RedemptionPeriod = "",
             Frequency = "Annually in May",
+            CanShowCountyMap = true,
             Counties =
             [
                 GetCounty(state, "Beaver", "49001"),

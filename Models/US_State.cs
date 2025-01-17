@@ -5,7 +5,7 @@ namespace CountEZ.Models
 {
     [Serializable]
     [XmlRoot("STATE", Namespace = "", IsNullable = false)]
-    internal class US_State : ObservableObject
+    public class US_State : ObservableObject
     {
         [XmlAttribute(AttributeName = "ID")]
         public StateCode StateID { get; set; }
@@ -36,6 +36,8 @@ namespace CountEZ.Models
         public string? Frequency { get; set; }
 
         public int Count => Counties == null ? 0 : Counties.Count;
+
+        public bool CanShowCountyMap { get; set; }
 
         public bool IsSelected
         {

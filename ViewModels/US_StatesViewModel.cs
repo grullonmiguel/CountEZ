@@ -2,6 +2,7 @@
 using CountEZ.Core.Base;
 using CountEZ.Core.Contracts;
 using CountEZ.Models;
+using CountEZ.ViewModels.Dialogs;
 using System.Diagnostics.Metrics;
 using System.Windows.Input;
 
@@ -11,6 +12,7 @@ namespace CountEZ.ViewModels
     {
         #region Fields
 
+        private readonly IDialogService _dialogService;
         private readonly IStateDataService _dataService;
         private readonly ISystemService _systemService;
 
@@ -40,10 +42,16 @@ namespace CountEZ.ViewModels
                 Counties = null;
                 SetProperty(ref _stateSelected, value);
                 UpdateStateSelected();
-                Task.Run(UpdateCountyList);
+                UpdateCountyList();
+                OnPropertyChanged(nameof(CountyCount));
             }
         }
         private US_State? _stateSelected;
+
+        public string CountyCount 
+            => StateSelected?.Counties?.Count <= 1 ? 
+                $"{StateSelected?.Counties?.Count} County" : 
+                $"{StateSelected?.Counties?.Count} Counties";
 
         #endregion
 
@@ -56,14 +64,16 @@ namespace CountEZ.ViewModels
         public ICommand BestCountiesCommand => new RelayCommand(OpenBestCountiesURL);
         public ICommand WorstCountiesCommand => new RelayCommand(OpenWorstCountiesURL);
         public ICommand StateSelectedCommand => new RelayCommand<StateCode>(GetSelectedState);
+        public ICommand ViewStateCommand => new RelayCommand(OpenStateSelected);
 
         #endregion
 
         #region Constructor
 
-        public US_StatesViewModel(IStateDataService dataService, ISystemService systemService)
+        public US_StatesViewModel(IDialogService dialogService, IStateDataService dataService, ISystemService systemService)
         {
             _dataService = dataService;
+            _dialogService = dialogService;
             _systemService = systemService;
         }
 
@@ -122,6 +132,15 @@ namespace CountEZ.ViewModels
 
         private void OpenWorstCountiesURL()
             => _systemService.OpenWebSearch($"{StateSelected?.Name} worst counties");
+
+        private async void OpenStateSelected()
+        {
+            if (StateSelected != null)
+            {
+                var dlg = new StateDialogViewModel(StateSelected,_systemService);
+                await _dialogService.ShowDialogAsync(dlg);
+            }
+        }
 
         #endregion
     }

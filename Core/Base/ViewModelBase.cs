@@ -2,7 +2,7 @@
 
 namespace CountEZ.Core.Base
 {
-    internal class ViewModelBase : ObservableObject, IDisposable
+    public class ViewModelBase : ObservableObject, IDisposable
     {
         protected bool _isDisposed;
 

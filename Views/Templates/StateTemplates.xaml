@@ -202,9 +202,12 @@
 
     <!-- County Count Template -->
     <DataTemplate x:Key="StateCountyCountTemplate">
-        <TextBlock Foreground="{DynamicResource Brushes.Showcase}">
-            <Run Text="{Binding StateSelected.Counties.Count, Mode=OneWay}" /> <Run Text="Counties" />
-        </TextBlock>
+        <Button Margin="0 5 0 0" Width="100"
+                Content="{Binding Path=CountyCount}" 
+                Command="{Binding ViewStateCommand}"
+                FontSize="{DynamicResource Fonts.Small}"
+                Style="{DynamicResource Buttons.Hyperlink}"
+                IsEnabled="{Binding StateSelected.CanShowCountyMap}"/>
     </DataTemplate>
 
     <!-- State List Template -->
@@ -370,7 +373,7 @@
 
                             <!-- Best Counties Search -->
                             <Button Content="Best Counties"
-                                    Margin="24 0"
+                                    Margin="0 0 24 0"
                                     FontSize="{DynamicResource Fonts.Small}"
                                     Style="{DynamicResource Buttons.HyperlinkExternal}"
                                     Command="{Binding BestCountiesCommand}" />

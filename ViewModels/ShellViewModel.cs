@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using CountEZ.Core.Base;
+using CountEZ.Core.Contracts;
 using CountEZ.Models;
 using System.Windows;
 using System.Windows.Input;
@@ -8,6 +9,12 @@ namespace CountEZ.ViewModels
 {
     internal class ShellViewModel : ViewModelBase
     {
+        #region Fields
+
+        private readonly IDialogService _dialogService;
+
+        #endregion
+
         #region Commands
 
         public ICommand MinimizeCommand => new RelayCommand<object>(OnMinimize);
@@ -26,12 +33,29 @@ namespace CountEZ.ViewModels
         }
         private ActivePageType _activePage;
 
+        public IDialogViewModel CurrentDialogViewModel
+        {
+            get => _currentDialogViewModel;
+            set => SetProperty(ref _currentDialogViewModel, value);
+        }
+        private IDialogViewModel _currentDialogViewModel;
+
+        public bool IsDialogVisible
+        {
+            get => _isDialogVisible;
+            set => SetProperty(ref _isDialogVisible, value);
+        }
+        private bool _isDialogVisible;
+
         #endregion
 
         #region Constructor
 
-        public ShellViewModel()
+        public ShellViewModel(IDialogService dialogService)
         {
+            _dialogService = dialogService;
+            _dialogService.OnDisplayDialog += DisplayDialog;
+            _dialogService.OnCloseDialog += CloseDialog;
             ActivePage = ActivePageType.US_States;
         }
 
@@ -59,6 +83,35 @@ namespace CountEZ.ViewModels
 
         private void UpdateView(ActivePageType activePage)
             => ActivePage = activePage;
+
+        private void DisplayDialog(IDialogViewModel viewModel, bool isModal = false)
+        {
+            if (CurrentDialogViewModel != null)
+            {
+                viewModel.PreviousDialog = CurrentDialogViewModel;
+            }
+
+            CurrentDialogViewModel = viewModel;
+
+            IsDialogVisible = true;
+        }
+
+        private void CloseDialog(bool isModal = false)
+        {
+            if (CurrentDialogViewModel != null)
+            {
+                if (CurrentDialogViewModel.PreviousDialog == null)
+                {
+                    CurrentDialogViewModel.Dispose();
+                    CurrentDialogViewModel = null;
+                    IsDialogVisible = false;
+                }
+                else
+                {
+                    CurrentDialogViewModel = CurrentDialogViewModel.PreviousDialog;
+                }
+            }
+        }
 
         #endregion
     }

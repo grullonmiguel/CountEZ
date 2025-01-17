@@ -37,6 +37,7 @@ namespace CountEZ
             var services = new ServiceCollection();
 
             // Core Services
+            services.AddSingleton<IDialogService, DialogService>();
             services.AddSingleton<IStateDataService, StateDataService>();
             services.AddSingleton<ISystemService, SystemService>();
             services.AddSingleton<IThemeService, ThemeService>();

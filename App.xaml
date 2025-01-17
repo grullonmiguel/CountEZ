@@ -3,6 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:CountEZ"
              xmlns:conv="clr-namespace:CountEZ.Core.Converters"
+             xmlns:dialogvm="clr-namespace:CountEZ.ViewModels.Dialogs" 
+             xmlns:dialogs="clr-namespace:CountEZ.Views.Dialogs"
              DispatcherUnhandledException="OnDispatcherUnhandledException">
     <Application.Resources>
         <ResourceDictionary>
@@ -11,10 +13,16 @@
             </ResourceDictionary.MergedDictionaries>
 
             <!-- Converters-->
+            <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
             <conv:EnumDescriptionConverter x:Key="EnumDescriptionConverter" />
             <conv:IsGreaterThanConverter x:Key="IsGreaterThanConverter"/>
             <conv:IsLessThanConverter x:Key="IsLessThanConverter" />
             
+            <!-- Dialogs -->
+            <DataTemplate DataType="{x:Type dialogvm:StateDialogViewModel}" >
+                <dialogs:StateDialogView/>
+            </DataTemplate>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>
