@@ -1785,6 +1785,7 @@ namespace CountEZ.Core.Services
             SalesType = SaleTypeCode.Lien,
             InterestRate = "18%",
             RedemptionPeriod = "2 Years",
+            CanShowCountyMap = true,
             Counties =
             [
                 GetCounty(state, "Adams", "28001"),

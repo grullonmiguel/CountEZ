@@ -158,6 +158,10 @@
                                     <DataTrigger Binding="{Binding Path=ID}" Value="IL">
                                         <Setter Property="ContentTemplate" Value="{StaticResource Illinois_DataTemplate}" />
                                     </DataTrigger>
+                                    <!-- Mississippi -->
+                                    <DataTrigger Binding="{Binding Path=ID}" Value="MS">
+                                        <Setter Property="ContentTemplate" Value="{StaticResource Mississippi_DataTemplate}" />
+                                    </DataTrigger>
                                     <!-- Utah -->
                                     <DataTrigger Binding="{Binding Path=ID}" Value="UT">
                                         <Setter Property="ContentTemplate" Value="{StaticResource Utah_DataTemplate}" />
