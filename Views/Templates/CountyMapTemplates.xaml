@@ -1,0 +1,249 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/Views/Templates/CountyMapStyles.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    
+    <DataTemplate x:Key="Alabama_DataTemplate">
+        <Viewbox VerticalAlignment="Center">
+            <ItemsControl ItemsSource="{Binding Counties}" Style="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Grid />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <RadioButton Style="{DynamicResource RadioButtons.Alabama}" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Viewbox>
+    </DataTemplate>
+    <DataTemplate x:Key="Alaska_DataTemplate">
+        <Viewbox VerticalAlignment="Center">
+            <ItemsControl ItemsSource="{Binding Counties}" Style="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Grid />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <RadioButton Style="{DynamicResource RadioButtons.Alaska}" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Viewbox>
+    </DataTemplate>    
+    <DataTemplate x:Key="Arizona_DataTemplate">
+        <Viewbox VerticalAlignment="Center">
+            <ItemsControl ItemsSource="{Binding Counties}" Style="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Grid />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <RadioButton Style="{DynamicResource RadioButtons.Arizona}" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Viewbox>
+    </DataTemplate>
+    <DataTemplate x:Key="Arkansas_DataTemplate">
+        <Viewbox VerticalAlignment="Center">
+            <ItemsControl ItemsSource="{Binding Counties}" Style="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Grid />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <RadioButton Style="{DynamicResource RadioButtons.Arkansas}" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Viewbox>
+    </DataTemplate>
+    <DataTemplate x:Key="California_DataTemplate">
+        <Viewbox VerticalAlignment="Center">
+            <ItemsControl ItemsSource="{Binding Counties}" Style="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Grid />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <RadioButton Style="{DynamicResource RadioButtons.California}" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Viewbox>
+    </DataTemplate>
+    <DataTemplate x:Key="Colorado_DataTemplate">
+        <Viewbox VerticalAlignment="Center">
+            <ItemsControl ItemsSource="{Binding Counties}" Style="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Grid />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <RadioButton Style="{DynamicResource RadioButtons.Colorado}" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Viewbox>
+    </DataTemplate>
+    <DataTemplate x:Key="Connecticut_DataTemplate">
+        <Viewbox VerticalAlignment="Center">
+            <ItemsControl ItemsSource="{Binding Counties}" Style="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Grid />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <RadioButton Style="{DynamicResource RadioButtons.Connecticut}" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Viewbox>
+    </DataTemplate>
+    <DataTemplate x:Key="DC_DataTemplate">
+        <Viewbox VerticalAlignment="Center">
+            <ItemsControl ItemsSource="{Binding Counties}" Style="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Grid />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <RadioButton Style="{DynamicResource RadioButtons.DC}" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Viewbox>
+    </DataTemplate>
+    <DataTemplate x:Key="Delaware_DataTemplate">
+        <Viewbox VerticalAlignment="Center">
+            <ItemsControl ItemsSource="{Binding Counties}" Style="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Grid />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <RadioButton Style="{DynamicResource RadioButtons.Delaware}" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Viewbox>
+    </DataTemplate>
+    <DataTemplate x:Key="Florida_DataTemplate">
+        <Viewbox VerticalAlignment="Center">
+            <ItemsControl ItemsSource="{Binding Counties}" Style="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Grid />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <RadioButton Style="{DynamicResource RadioButtons.Florida}" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Viewbox>
+    </DataTemplate>
+    <DataTemplate x:Key="Georgia_DataTemplate">
+        <Viewbox VerticalAlignment="Center">
+            <ItemsControl ItemsSource="{Binding Counties}" Style="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Grid />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <RadioButton Style="{DynamicResource RadioButtons.Georgia}" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Viewbox>
+    </DataTemplate>
+    <DataTemplate x:Key="Hawaii_DataTemplate">
+        <Viewbox VerticalAlignment="Center">
+            <ItemsControl ItemsSource="{Binding Counties}" Style="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Grid />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <RadioButton Style="{DynamicResource RadioButtons.Hawaii}" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Viewbox>
+    </DataTemplate>
+    <DataTemplate x:Key="Idaho_DataTemplate">
+        <Viewbox VerticalAlignment="Center">
+            <ItemsControl ItemsSource="{Binding Counties}" Style="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Grid />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <RadioButton Style="{DynamicResource RadioButtons.Idaho}" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Viewbox>
+    </DataTemplate>
+    <DataTemplate x:Key="Illinois_DataTemplate">
+        <Viewbox VerticalAlignment="Center">
+            <ItemsControl ItemsSource="{Binding Counties}" Style="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Grid />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <RadioButton Style="{DynamicResource RadioButtons.Illinois}" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Viewbox>
+    </DataTemplate>
+    <DataTemplate x:Key="Utah_DataTemplate">
+        <Viewbox VerticalAlignment="Center">
+            <ItemsControl ItemsSource="{Binding Counties}" Style="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Grid />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <RadioButton Style="{DynamicResource RadioButtons.Utah}" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Viewbox>
+    </DataTemplate>
+
+</ResourceDictionary>

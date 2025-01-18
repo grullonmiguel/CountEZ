@@ -597,6 +597,7 @@ namespace CountEZ.Core.Services
             RedemptionPeriod = "1 Year",
             RedemptionPeriodComments = "1 Year With 20% Penalty + 10% for Each Subsequent Year Until Foreclosure Is Filed",
             Frequency = "Monthly on First Tuesday on the Month in Most Counties",
+            CanShowCountyMap = true,
             Counties =
             [
                 GetCounty(state, "Appling", "13001"),
@@ -787,6 +788,7 @@ namespace CountEZ.Core.Services
             InterestRate = "",
             RedemptionPeriod = "",
             Frequency = "Annually in May or Varied Based on Number of Properties",
+            CanShowCountyMap = true,
             Counties =
             [
                 GetCounty(state, "Ada", "16001"),
@@ -843,6 +845,7 @@ namespace CountEZ.Core.Services
             RedemptionPeriod = "2 Years",
             RedemptionPeriodComments = "2 to 2 1/2 Years Depending on Classification of Property",
             Frequency = "Annually – Varies Throughout Year",
+            CanShowCountyMap = true,
             Counties =
             [
                 GetCounty(state, "Adams", "17001"),

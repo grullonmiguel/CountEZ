@@ -7,21 +7,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
-        <!-- Includes -->
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/Views/Templates/AlabamaMap.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/Views/Templates/AlaskaMap.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/Views/Templates/ArkansasMap.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/Views/Templates/ArizonaMap.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/Views/Templates/CaliforniaMap.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/Views/Templates/ColoradoMap.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/Views/Templates/ConnecticutMap.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/Views/Templates/DCMap.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/Views/Templates/DelawareMap.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/Views/Templates/FloridaMap.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/Views/Templates/HawaiiMap.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/Views/Templates/UtahMap.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Views/Templates/CountyMapTemplates.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>        
     </UserControl.Resources>
@@ -42,19 +30,22 @@
                 </Grid.RowDefinitions>
 
                 <Grid>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
                         <!-- State -->
                         <TextBlock Style="{DynamicResource TextBlocks.Heading1}" Text="{Binding Name}" />
-                        <!-- County -->
-                        <TextBlock Style="{DynamicResource TextBlocks.Heading2}" Text="{Binding CountySelected.Name}" Foreground="{DynamicResource Brushes.ForegroundSecondary}" VerticalAlignment="Bottom" Margin="12 0 0 -5"/>
+                        <!-- County Count -->
+                        <TextBlock Text="{Binding CountyCount}" Foreground="{DynamicResource Brushes.ForegroundPrimary}" VerticalAlignment="Center" Margin="12 0 0 0" FontSize="{DynamicResource Fonts.Small}" Opacity=".5"/>
                     </StackPanel>
+                    
+                    <!-- County -->
+                    <TextBlock Style="{DynamicResource TextBlocks.Heading1}" Text="{Binding CountySelected.Name}" Foreground="{DynamicResource Brushes.ForegroundSecondary}" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 8 0 0"/>
 
                     <!-- OK -->
-                    <Button Command="{Binding OkCommand}" Style="{DynamicResource Buttons.Close}" HorizontalAlignment="Right" />
+                    <Button Command="{Binding OkCommand}" Style="{DynamicResource Buttons.Close}" HorizontalAlignment="Right" VerticalAlignment="Top" />
                 </Grid>
 
                 <!-- Content -->
-                <Grid Grid.Row="1" Margin="0 8 0 0">
+                <Grid Grid.Row="1" Margin="0 0 0 0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="150"/>
                         <ColumnDefinition />
@@ -75,33 +66,33 @@
                         <!-- TAX OFFICE -->
                         <Button 
                             Content="Tax Office"
-                            Style="{DynamicResource Buttons.Primary}"
+                            Style="{DynamicResource Buttons.Tertiary}"
                             Command="{Binding Path=DataContext.TaxOfficeCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" 
                             CommandParameter="{Binding CountySelected}"/>
                         <!-- APPRAISAL -->
                         <Button 
                             Grid.Column="2"
                             Content="Appraisal Office" 
-                            Style="{DynamicResource Buttons.Primary}"
+                            Style="{DynamicResource Buttons.Tertiary}"
                             Command="{Binding Path=DataContext.AppraisalOfficeCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" 
                             CommandParameter="{Binding CountySelected}"/>
                         <!-- CLERK'S OFFICE -->
                         <Button 
                             Grid.Column="4"
                             Content="Clerk's Office"
-                            Style="{DynamicResource Buttons.Primary}"
+                            Style="{DynamicResource Buttons.Tertiary}"
                             Command="{Binding Path=DataContext.ClerkOfficeCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" 
                             CommandParameter="{Binding CountySelected}"/>
                         <!-- BEST ZIP CODES -->
                         <Button 
                             Content="Best ZIP Codes"
-                            Style="{DynamicResource Buttons.Primary}"
+                            Style="{DynamicResource Buttons.Tertiary}"
                             Command="{Binding Path=DataContext.BestZipCodesCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" 
                             CommandParameter="{Binding CountySelected}"/>
                         <!-- WORST ZIP CODES -->
                         <Button 
                             Content="Worst ZIP Codes"
-                            Style="{DynamicResource Buttons.Primary}"
+                            Style="{DynamicResource Buttons.Tertiary}"
                             Command="{Binding Path=DataContext.WorstZipCodesCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" 
                             CommandParameter="{Binding CountySelected}"/>
                     </WrapPanel>
@@ -151,9 +142,21 @@
                                     <DataTrigger Binding="{Binding Path=ID}" Value="FL">
                                         <Setter Property="ContentTemplate" Value="{StaticResource Florida_DataTemplate}" />
                                     </DataTrigger>
+                                    <!-- Georgia -->
+                                    <DataTrigger Binding="{Binding Path=ID}" Value="GA">
+                                        <Setter Property="ContentTemplate" Value="{StaticResource Georgia_DataTemplate}" />
+                                    </DataTrigger>
                                     <!-- Hawaii -->
                                     <DataTrigger Binding="{Binding Path=ID}" Value="HI">
                                         <Setter Property="ContentTemplate" Value="{StaticResource Hawaii_DataTemplate}" />
+                                    </DataTrigger>
+                                    <!-- Idaho -->
+                                    <DataTrigger Binding="{Binding Path=ID}" Value="ID">
+                                        <Setter Property="ContentTemplate" Value="{StaticResource Idaho_DataTemplate}" />
+                                    </DataTrigger>
+                                    <!-- Illinois -->
+                                    <DataTrigger Binding="{Binding Path=ID}" Value="IL">
+                                        <Setter Property="ContentTemplate" Value="{StaticResource Illinois_DataTemplate}" />
                                     </DataTrigger>
                                     <!-- Utah -->
                                     <DataTrigger Binding="{Binding Path=ID}" Value="UT">

@@ -1,7 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using CountEZ.Core.Contracts;
 using CountEZ.Models;
-using System.Diagnostics.Metrics;
 using System.Windows.Input;
 
 namespace CountEZ.ViewModels.Dialogs
@@ -33,6 +32,8 @@ namespace CountEZ.ViewModels.Dialogs
         }
         private US_County _countySelected;
 
+        public string CountyCount { get; private set; }
+
         #endregion
 
         #region Commands
@@ -58,6 +59,10 @@ namespace CountEZ.ViewModels.Dialogs
             Count = state.Count;
             SalesType = state.SalesType;
             GetSelectedCounty(Counties?.FirstOrDefault()?.Name);
+
+            CountyCount = state?.Counties?.Count <= 1 ?
+                $"{state?.Counties?.Count} County" :
+                $"{state?.Counties?.Count} Counties";
         }
 
         #endregion

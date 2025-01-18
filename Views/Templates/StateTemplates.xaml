@@ -202,11 +202,11 @@
 
     <!-- County Count Template -->
     <DataTemplate x:Key="StateCountyCountTemplate">
-        <Button Margin="0 5 0 0" Width="100"
+        <Button Width="116"
                 Content="{Binding Path=CountyCount}" 
                 Command="{Binding ViewStateCommand}"
                 FontSize="{DynamicResource Fonts.Small}"
-                Style="{DynamicResource Buttons.Hyperlink}"
+                Style="{DynamicResource Buttons.HyperlinkExternal}"
                 IsEnabled="{Binding StateSelected.CanShowCountyMap}"/>
     </DataTemplate>
 
