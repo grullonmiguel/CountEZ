@@ -245,6 +245,22 @@
             </ItemsControl>
         </Viewbox>
     </DataTemplate>
+    <DataTemplate x:Key="Texas_DataTemplate">
+        <Viewbox VerticalAlignment="Center">
+            <ItemsControl ItemsSource="{Binding Counties}" Style="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Grid />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <RadioButton Style="{DynamicResource RadioButtons.Texas}" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Viewbox>
+    </DataTemplate>
     <DataTemplate x:Key="Utah_DataTemplate">
         <Viewbox VerticalAlignment="Center">
             <ItemsControl ItemsSource="{Binding Counties}" Style="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">

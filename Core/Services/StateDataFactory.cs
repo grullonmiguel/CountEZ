@@ -3145,6 +3145,7 @@ namespace CountEZ.Core.Services
             RedemptionPeriod = "6 Months",
             RedemptionPeriodComments = "6 Months for Most Properties. 2 Years for Homestead and Special Land Use Properties",
             Frequency = "First Tuesday of each Month",
+            CanShowCountyMap = true,
             Counties =
             [
                 GetCounty(state, "Anderson", "48001"),
