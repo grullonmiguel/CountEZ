@@ -158,9 +158,25 @@
                                     <DataTrigger Binding="{Binding Path=ID}" Value="IL">
                                         <Setter Property="ContentTemplate" Value="{StaticResource Illinois_DataTemplate}" />
                                     </DataTrigger>
+                                    <!-- Indiana -->
+                                    <DataTrigger Binding="{Binding Path=ID}" Value="IN">
+                                        <Setter Property="ContentTemplate" Value="{StaticResource Indiana_DataTemplate}" />
+                                    </DataTrigger>
                                     <!-- Mississippi -->
                                     <DataTrigger Binding="{Binding Path=ID}" Value="MS">
                                         <Setter Property="ContentTemplate" Value="{StaticResource Mississippi_DataTemplate}" />
+                                    </DataTrigger>
+                                    <!-- New Hampshire -->
+                                    <DataTrigger Binding="{Binding Path=ID}" Value="NH">
+                                        <Setter Property="ContentTemplate" Value="{StaticResource NewHampshire_DataTemplate}" />
+                                    </DataTrigger>
+                                    <!-- New York -->
+                                    <DataTrigger Binding="{Binding Path=ID}" Value="NY">
+                                        <Setter Property="ContentTemplate" Value="{StaticResource NewYork_DataTemplate}" />
+                                    </DataTrigger>
+                                    <!-- Rhode Island -->
+                                    <DataTrigger Binding="{Binding Path=ID}" Value="RI">
+                                        <Setter Property="ContentTemplate" Value="{StaticResource RhodeIsland_DataTemplate}" />
                                     </DataTrigger>
                                     <!-- Texas -->
                                     <DataTrigger Binding="{Binding Path=ID}" Value="TX">

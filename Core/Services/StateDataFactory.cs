@@ -154,7 +154,7 @@ namespace CountEZ.Core.Services
             InterestRate = "12%",
             RedemptionPeriod = "3 Years",
             Frequency = "Annually from Apr to Jun",
-            CanShowCountyMap = true,
+            CanShowCountyMap = false,
             Counties =
             [
                 GetCounty(state, "Aleutians East",       "2013"),
@@ -962,6 +962,7 @@ namespace CountEZ.Core.Services
             RedemptionPeriod = "1 Year",
             RedemptionPeriodComments = "1 Year if Sold at County Sale, Liens Not Sold at County Sale Are Certified to Commissioner and Sold in “Commissioner’s Certificate Sale” With 120 Day Redemption Period",
             Frequency = "Annually Sometime in the Fall",
+            CanShowCountyMap = true,
             Counties =
             [
                 GetCounty(state, "Adams", "18001"),
@@ -2210,6 +2211,7 @@ namespace CountEZ.Core.Services
             SalesType = SaleTypeCode.Deed,
             InterestRate = "",
             RedemptionPeriod = "",
+            CanShowCountyMap = false,
             Counties =
             [
                 GetCounty(state, "Belknap", "33001"),
@@ -2313,6 +2315,7 @@ namespace CountEZ.Core.Services
             RedemptionPeriod = "2 Years",
             RedemptionPeriodComments = "2 Years on Liens",
             Frequency = "Annually – Varies Throughout Year",
+            CanShowCountyMap = true,
             Counties =
             [
                 GetCounty(state, "Albany", "36001"),
@@ -2882,6 +2885,7 @@ namespace CountEZ.Core.Services
             InterestRate = "16%",
             RedemptionPeriod = "1 Year",
             Frequency = "Varies",
+            CanShowCountyMap = true,
             Counties =
             [
                 GetCounty(state, "Bristol", "44001"),
